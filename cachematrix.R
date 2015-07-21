@@ -4,10 +4,13 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-        m <- NULL
+        #m <- NULL
+        m <- matrix()
+        
         set <- function(y) {
                 x <<- y
-                m <<- NULL
+                #m <<- NULL
+                m <<- matrix()
         }
         get <- function() x
         
@@ -23,8 +26,12 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+        m <- matrix()
         m <- x$getSolve()
-        if(!is.null(m)) {
+        #message("blab1")
+        #print(m)
+        #f(!is.null(m)) {
+        if(!is.na(m[[1,1]])) {
                 message("getting cached data")
                 return(m)
         }
