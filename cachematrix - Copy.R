@@ -1,19 +1,19 @@
 ## The Second Program assignment 
-## Matrix inversion is usually a costly computation 
-## so we will be caching the inverse of a matrix rather than
-## compute it repeatedly
+## This is a list of funcitons
 
-## makeCacheMatrix is a function that stores a list of functions,
-##  get, set, getSolve, and setSolve.
+## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
+        #m <- NULL
         m <- matrix()
-       
+        
         set <- function(y) {
                 x <<- y
+                #m <<- NULL
                 m <<- matrix()
         }
         get <- function() x
+        
         setSolve <- function(InvMatrix) m <<- InvMatrix 
         getSolve <- function() m
         list(set = set, get = get,
@@ -22,12 +22,15 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve returns the stored Inverted Matrix from memory,
-## or computes one.
+## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
+        ## Return a matrix that is the inverse of 'x'
         m <- matrix()
         m <- x$getSolve()
+        #message("blab1")
+        #print(m)
+        #f(!is.null(m)) {
         if(!is.na(m[[1,1]])) {
                 message("getting cached data")
                 return(m)
@@ -37,3 +40,4 @@ cacheSolve <- function(x, ...) {
         x$setSolve(m)
         m
 }
+#list(makeCacheMatrix = makeCacheMatrix, cacheSolve = cacheSolve)
